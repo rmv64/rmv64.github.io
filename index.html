@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Next Bus Countdown</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-icon.png">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-icon.png" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Next Bus Countdown</h1>
-        <div id="bus-stop">Hellerhofschule</div>
-        <div id="next-bus">Next bus in: <span id="countdown">--:--</span></div>
-        
-        <button id="addToHomeScreenBtn" style="display: none;">Add to Home Screen</button>
+      <h1>Next Bus Countdown</h1>
+      <div id="bus-stop">Hellerhofschule</div>
+      <div id="next-bus">Next bus in: <span id="countdown">--:--</span></div>
+    </div>
+
+    <div class="footer">
+      <button id="addToHomeScreenBtn" style="display: none">Add to Home Screen</button>
     </div>
 
     <script>
-        // Check if the app is in standalone mode (added to home screen)
-        if (window.navigator.standalone !== true) {
-            document.getElementById('addToHomeScreenBtn').style.display = 'block';
+      // Check if the app is in standalone mode (added to home screen)
+      if (window.navigator.standalone !== true) {
+        document.getElementById("addToHomeScreenBtn").style.display = "block";
+      }
+
+      // Detect iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      document.getElementById("addToHomeScreenBtn").addEventListener("click", function () {
+        if (isIOS) {
+          alert(
+            "To add this app to your home screen: tap the share icon in your browser and select 'Add to Home Screen'."
+          );
+        } else {
+          alert(
+            "To add this app to your home screen, use your browser's 'Add to Home Screen' option in the menu."
+          );
         }
-
-        // Detect iOS
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-        document.getElementById('addToHomeScreenBtn').addEventListener('click', function() {
-            if (isIOS) {
-                alert("To add this app to your home screen: tap the share icon in your browser and select 'Add to Home Screen'.");
-            } else {
-                alert("To add this app to your home screen, use your browser's 'Add to Home Screen' option in the menu.");
-            }
-        });
+      });
     </script>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
