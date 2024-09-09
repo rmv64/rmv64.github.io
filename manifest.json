@@ -1,6 +1,6 @@
 {
   "name": "Next Bus Countdown",
-  "short_name": "Bus Countdown",
+  "short_name": "Bus 64",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
